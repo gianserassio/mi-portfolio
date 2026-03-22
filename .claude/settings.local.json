@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run:*)",
+      "Bash(cd:*)",
+      "Bash(python3 -c \":*)",
+      "Bash(for f:*)",
+      "Bash(do)",
+      "Bash(powershell -command \"Add-Type -AssemblyName System.Drawing; $img = [System.Drawing.Image]::FromFile\\(\\(Resolve-Path ''E:/Portofolio - Vercel/mi-portfolio/public/images/Imagenes fondo/$f''\\).Path\\); Write-Output \\(''$f'' + '': '' + $img.Width + ''x'' + $img.Height + '' ratio='' + [math]::Round\\($img.Width/$img.Height, 2\\)\\); $img.Dispose\\(\\)\")",
+      "Bash(done)",
+      "Bash(powershell -command \"Add-Type -AssemblyName System.Drawing; \\\\$img = [System.Drawing.Image]::FromFile\\(\\(Resolve-Path 'E:/Portofolio - Vercel/mi-portfolio/public/images/Imagenes fondo/hf_20260322_165652_0cd2acd4-f7c7-4122-a7e9-1da5ab070cff \\(1\\).png'\\).Path\\); Write-Output \\(\\\\$img.Width.ToString\\(\\) + 'x' + \\\\$img.Height.ToString\\(\\) + ' ratio=' + [math]::Round\\(\\\\$img.Width/\\\\$img.Height, 2\\)\\); \\\\$img.Dispose\\(\\)\")",
+      "Bash(powershell -command \"\nAdd-Type -AssemblyName System.Drawing\n\\\\$path = 'E:/Portofolio - Vercel/mi-portfolio/public/images/Imagenes fondo/hf_20260322_165652_0cd2acd4-f7c7-4122-a7e9-1da5ab070cff \\(1\\).png'\n\\\\$img = [System.Drawing.Image]::FromFile\\(\\\\$path\\)\n\\\\$w = \\\\$img.Width\n\\\\$h = \\\\$img.Height\n\\\\$r = [math]::Round\\(\\\\$w/\\\\$h, 2\\)\nWrite-Output \\\\\"\\\\$w x \\\\$h ratio=\\\\$r\\\\\"\n\\\\$img.Dispose\\(\\)\n\")",
+      "Bash(powershell -command \"\nAdd-Type -AssemblyName System.Drawing\n\\\\$folder = 'E:/Portofolio - Vercel/mi-portfolio/public/images/Odyssey'\nGet-ChildItem \\\\$folder -Filter '*.png' | ForEach-Object {\n  \\\\$img = [System.Drawing.Image]::FromFile\\(\\\\$_.FullName\\)\n  Write-Output \\(\\\\$_.Name + ': ' + \\\\$img.Width + 'x' + \\\\$img.Height\\)\n  \\\\$img.Dispose\\(\\)\n}\n\")",
+      "Bash(powershell -command \"\nAdd-Type -AssemblyName System.Drawing\n\\\\$folder = 'E:/Portofolio - Vercel/mi-portfolio/public/images/Craftd'\nGet-ChildItem \\\\$folder -Include '*.png','*.jpg','*.jpeg' -Recurse | ForEach-Object {\n  \\\\$img = [System.Drawing.Image]::FromFile\\(\\\\$_.FullName\\)\n  Write-Output \\(\\\\$_.Name + ': ' + \\\\$img.Width + 'x' + \\\\$img.Height\\)\n  \\\\$img.Dispose\\(\\)\n}\n\")",
+      "Bash(powershell -command \"\nAdd-Type -AssemblyName System.Drawing\n\\\\$folder = 'E:/Portofolio - Vercel/mi-portfolio/public/images/Power Bank'\nGet-ChildItem \\\\$folder | ForEach-Object {\n  \\\\$img = [System.Drawing.Image]::FromFile\\(\\\\$_.FullName\\)\n  Write-Output \\(\\\\$_.Name + ': ' + \\\\$img.Width + 'x' + \\\\$img.Height\\)\n  \\\\$img.Dispose\\(\\)\n}\n\")",
+      "Bash(powershell -command \":*)",
+      "Bash(taskkill /PID 25592 /F)"
+    ]
+  }
+}
