@@ -141,9 +141,7 @@ export default function Testimonials() {
             {/* Upwork badge */}
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-full bg-[#14a800]/10 border border-[#14a800]/30 flex items-center justify-center flex-shrink-0">
-                <svg className="w-4 h-4 fill-[#14a800]" viewBox="0 0 24 24">
-                  <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.703c-2.386 0-4.335 1.515-5.104 3.607-.731-.472-1.862-1.013-3.083-1.013C8.935 7.049 7.387 8.6 7.387 10.5c0 1.343.817 2.515 2.044 3.109l-.013.054C8.819 15.449 7.741 17.5 6.03 17.5c-1.343 0-2.494-1.012-2.703-2.338L1.5 16.027C2.129 18.303 4.181 20 6.03 20c2.489 0 4.472-1.843 5.238-4.429.474.117.969.179 1.481.179 2.386 0 4.335-1.516 5.104-3.607.366.109.751.168 1.149.168 2.703 0 4.998-2.295 4.998-4.998.001-2.703-2.294-4.998-4.997-4.858z"/>
-                </svg>
+                <img src="/images/Logos programas/Upwork.png" alt="Upwork" className="w-5 h-5 object-contain" />
               </div>
               <span className="text-xs font-semibold text-[#8892A4] tracking-wide">{tr.upwork_label}</span>
             </div>
