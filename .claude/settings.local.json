@@ -16,7 +16,8 @@
       "Bash(powershell -command \"\nAdd-Type -AssemblyName System.Drawing\n\\\\$folder = 'E:/Portofolio - Vercel/mi-portfolio/public/images/Craftd'\nGet-ChildItem \\\\$folder -Include '*.png','*.jpg','*.jpeg' -Recurse | ForEach-Object {\n  \\\\$img = [System.Drawing.Image]::FromFile\\(\\\\$_.FullName\\)\n  Write-Output \\(\\\\$_.Name + ': ' + \\\\$img.Width + 'x' + \\\\$img.Height\\)\n  \\\\$img.Dispose\\(\\)\n}\n\")",
       "Bash(powershell -command \"\nAdd-Type -AssemblyName System.Drawing\n\\\\$folder = 'E:/Portofolio - Vercel/mi-portfolio/public/images/Power Bank'\nGet-ChildItem \\\\$folder | ForEach-Object {\n  \\\\$img = [System.Drawing.Image]::FromFile\\(\\\\$_.FullName\\)\n  Write-Output \\(\\\\$_.Name + ': ' + \\\\$img.Width + 'x' + \\\\$img.Height\\)\n  \\\\$img.Dispose\\(\\)\n}\n\")",
       "Bash(powershell -command \":*)",
-      "Bash(taskkill /PID 25592 /F)"
+      "Bash(taskkill /PID 25592 /F)",
+      "Bash(gh auth:*)"
     ]
   }
 }
