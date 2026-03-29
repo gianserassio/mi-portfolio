@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
@@ -7,9 +7,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/lib/translations";
 
 const BADGE: Record<string, { bg: string; text: string; dot: string }> = {
-  "3D Modeling":  { bg: "bg-[#00D4FF]/10", text: "text-[#00D4FF]", dot: "bg-[#00D4FF]" },
-  "Modelado 3D":  { bg: "bg-[#00D4FF]/10", text: "text-[#00D4FF]", dot: "bg-[#00D4FF]" },
-  Render:         { bg: "bg-[#7B61FF]/10", text: "text-[#7B61FF]", dot: "bg-[#7B61FF]" },
+  "3D Modeling":  { bg: "bg-[#E87878]/10", text: "text-[#E87878]", dot: "bg-[#E87878]" },
+  "Modelado 3D":  { bg: "bg-[#E87878]/10", text: "text-[#E87878]", dot: "bg-[#E87878]" },
+  Render:         { bg: "bg-[#E89E6E]/10", text: "text-[#E89E6E]", dot: "bg-[#E89E6E]" },
   Animation:      { bg: "bg-[#FF6B6B]/10", text: "text-[#FF6B6B]", dot: "bg-[#FF6B6B]" },
   Animación:      { bg: "bg-[#FF6B6B]/10", text: "text-[#FF6B6B]", dot: "bg-[#FF6B6B]" },
 };
@@ -263,9 +263,9 @@ export default function Projects() {
               initial={{ opacity: 0, x: -16 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="text-[#00D4FF] text-xs font-semibold tracking-[0.3em] uppercase mb-3 flex items-center gap-2"
+              className="text-[#E87878] text-xs font-semibold tracking-[0.3em] uppercase mb-3 flex items-center gap-2"
             >
-              <span className="w-6 h-px bg-[#00D4FF]" />
+              <span className="w-6 h-px bg-[#E87878]" />
               {tr.eyebrow}
             </motion.p>
             <motion.h2
@@ -275,7 +275,7 @@ export default function Projects() {
               className="text-4xl md:text-5xl font-bold text-white tracking-tight"
             >
               {tr.heading}
-              <span className="text-[#8892A4] font-light">{tr.heading_sub}</span>
+              <span className="text-[#A48888] font-light">{tr.heading_sub}</span>
             </motion.h2>
           </div>
 
@@ -319,7 +319,7 @@ function ProjectCard({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-40px" });
   const { lang } = useLanguage();
-  const badge = BADGE[project.categoria] ?? { bg: "bg-[#00D4FF]/10", text: "text-[#00D4FF]", dot: "bg-[#00D4FF]" };
+  const badge = BADGE[project.categoria] ?? { bg: "bg-[#E87878]/10", text: "text-[#E87878]", dot: "bg-[#E87878]" };
 
   const iconShape =
     project.categoria === "3D Modeling" || project.categoria === "Modelado 3D" ? "box"
@@ -337,10 +337,10 @@ function ProjectCard({
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.55, delay: index * 0.08, ease: "easeOut" }}
       onClick={images ? () => onOpenGallery(images.gallery) : undefined}
-      className={`group bg-[#0a0f1e] border border-[#1a2540] hover:border-[#00D4FF]/40 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(0,212,255,0.07)] flex flex-col ${images ? "cursor-pointer" : "cursor-default"}`}
+      className={`group bg-[#150000] border border-[#3c0000] hover:border-[#E87878]/40 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(232,120,120,0.07)] flex flex-col ${images ? "cursor-pointer" : "cursor-default"}`}
     >
       {/* Image area */}
-      <div className="relative h-52 bg-[#0d1526] overflow-hidden flex-shrink-0">
+      <div className="relative h-52 bg-[#1a0000] overflow-hidden flex-shrink-0">
         {images?.cover ? (
           <Image
             src={images.cover}
@@ -355,7 +355,7 @@ function ProjectCard({
             <svg className="absolute inset-0 w-full h-full opacity-[0.06]" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <pattern id={`g-${index}`} width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00D4FF" strokeWidth="0.5" />
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#E87878" strokeWidth="0.5" />
                 </pattern>
               </defs>
               <rect width="100%" height="100%" fill={`url(#g-${index})`} />
@@ -366,16 +366,16 @@ function ProjectCard({
           </>
         )}
 
-        <span className="absolute top-3 right-3 text-[10px] font-mono text-[#8892A4]/60 bg-[#050810]/60 px-2 py-1 rounded-full z-10">
+        <span className="absolute top-3 right-3 text-[10px] font-mono text-[#A48888]/60 bg-[#0d0000]/60 px-2 py-1 rounded-full z-10">
           {project.año}
         </span>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1e] via-transparent to-transparent opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#150000] via-transparent to-transparent opacity-60" />
 
         {/* Hover overlay: gallery hint */}
         {images && (
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[#050810]/30">
-            <span className="text-white text-[11px] font-semibold tracking-widest uppercase bg-[#050810]/70 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[#0d0000]/30">
+            <span className="text-white text-[11px] font-semibold tracking-widest uppercase bg-[#0d0000]/70 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
               {galleryLabel}
             </span>
           </div>
@@ -387,13 +387,13 @@ function ProjectCard({
           <span className={`w-1.5 h-1.5 rounded-full ${badge.dot}`} />
           {project.categoria}
         </span>
-        <h3 className="text-lg font-bold text-white group-hover:text-[#00D4FF] transition-colors leading-snug">
+        <h3 className="text-lg font-bold text-white group-hover:text-[#E87878] transition-colors leading-snug">
           {project.titulo}
         </h3>
-        <p className="text-sm text-[#8892A4] leading-relaxed flex-1">{project.descripcion}</p>
-        <div className="flex flex-wrap gap-1.5 pt-2 border-t border-[#1a2540]">
+        <p className="text-sm text-[#A48888] leading-relaxed flex-1">{project.descripcion}</p>
+        <div className="flex flex-wrap gap-1.5 pt-2 border-t border-[#3c0000]">
           {project.tags.map((tag) => (
-            <span key={tag} className="text-[10px] font-medium text-[#8892A4] bg-[#0d1526] border border-[#1a2540] px-2.5 py-0.5 rounded-full">
+            <span key={tag} className="text-[10px] font-medium text-[#A48888] bg-[#1a0000] border border-[#3c0000] px-2.5 py-0.5 rounded-full">
               {tag}
             </span>
           ))}
@@ -437,15 +437,15 @@ function ProjectGallery({
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="fixed inset-0 z-[100] flex flex-col bg-[#050810] backdrop-blur-xl"
+      className="fixed inset-0 z-[100] flex flex-col bg-[#0d0000] backdrop-blur-xl"
     >
       {/* Header */}
-      <div className="flex items-center justify-between px-6 py-4 border-b border-[#1a2540] flex-shrink-0">
+      <div className="flex items-center justify-between px-6 py-4 border-b border-[#3c0000] flex-shrink-0">
         <div>
           <span className="text-white font-bold tracking-tight">{title}</span>
-          <span className="text-[#8892A4] text-xs font-mono ml-3">{images.length} images</span>
+          <span className="text-[#A48888] text-xs font-mono ml-3">{images.length} images</span>
         </div>
-        <button onClick={onClose} className="text-[#8892A4] hover:text-white transition-colors p-1">
+        <button onClick={onClose} className="text-[#A48888] hover:text-white transition-colors p-1">
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
@@ -462,7 +462,7 @@ function ProjectGallery({
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.25, delay: i * 0.015 }}
               onClick={() => setZoomed(i)}
-              className="relative aspect-square rounded-xl overflow-hidden group/img bg-[#0a0f1e]"
+              className="relative aspect-square rounded-xl overflow-hidden group/img bg-[#150000]"
             >
               <Image
                 src={src}
@@ -486,7 +486,7 @@ function ProjectGallery({
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="fixed inset-0 z-[110] flex flex-col bg-[#050810]/95 backdrop-blur-md"
+          className="fixed inset-0 z-[110] flex flex-col bg-[#0d0000]/95 backdrop-blur-md"
           onClick={() => setZoomed(null)}
         >
           {/* Zoom header */}
@@ -494,8 +494,8 @@ function ProjectGallery({
             className="flex items-center justify-between px-6 py-3 flex-shrink-0"
             onClick={(e) => e.stopPropagation()}
           >
-            <span className="text-[#8892A4] text-xs font-mono">{zoomed + 1} / {images.length}</span>
-            <button onClick={() => setZoomed(null)} className="text-[#8892A4] hover:text-white transition-colors">
+            <span className="text-[#A48888] text-xs font-mono">{zoomed + 1} / {images.length}</span>
+            <button onClick={() => setZoomed(null)} className="text-[#A48888] hover:text-white transition-colors">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -517,7 +517,7 @@ function ProjectGallery({
             </div>
             <button
               onClick={prevZoom}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full border border-[#1a2540] bg-[#0a0f1e]/80 text-[#8892A4] hover:text-white hover:border-[#00D4FF]/40 transition-all"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full border border-[#3c0000] bg-[#150000]/80 text-[#A48888] hover:text-white hover:border-[#E87878]/40 transition-all"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -525,7 +525,7 @@ function ProjectGallery({
             </button>
             <button
               onClick={nextZoom}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full border border-[#1a2540] bg-[#0a0f1e]/80 text-[#8892A4] hover:text-white hover:border-[#00D4FF]/40 transition-all"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full border border-[#3c0000] bg-[#150000]/80 text-[#A48888] hover:text-white hover:border-[#E87878]/40 transition-all"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -540,7 +540,7 @@ function ProjectGallery({
 
 /* ─── SVG icon fallback ────────────────────────────────────────────── */
 function ProjectIcon({ shape }: { shape: string }) {
-  const color = shape === "box" ? "#00D4FF" : shape === "sphere" ? "#7B61FF" : "#FF6B6B";
+  const color = shape === "box" ? "#E87878" : shape === "sphere" ? "#E89E6E" : "#FF6B6B";
   return (
     <svg className="w-16 h-16 opacity-20" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="0.8">
       {shape === "box" && (<><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></>)}

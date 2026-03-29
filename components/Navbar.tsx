@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -52,13 +52,13 @@ export default function Navbar() {
       >
         <div className={`w-full max-w-3xl px-6 h-14 flex items-center justify-between rounded-full transition-all duration-300 ${
           scrolled
-            ? "bg-[#050810]/80 backdrop-blur-xl border border-[#1a2540]"
-            : "bg-[#0a0f1e]/60 border border-[#1a2540]/50 backdrop-blur-sm"
+            ? "bg-[#0d0000]/80 backdrop-blur-xl border border-[#3c0000]"
+            : "bg-[#150000]/60 border border-[#3c0000]/50 backdrop-blur-sm"
         }`}>
           {/* Logo */}
           <a href="#" className="flex items-center gap-1.5 group">
-            <span className="text-[#00D4FF] font-bold text-xl tracking-tight">GS</span>
-            <span className="text-[#8892A4] text-xl font-light group-hover:text-white transition-colors">.design</span>
+            <span className="text-[#E87878] font-bold text-xl tracking-tight">GS</span>
+            <span className="text-[#A48888] text-xl font-light group-hover:text-white transition-colors">.design</span>
           </a>
 
           {/* Desktop nav */}
@@ -71,7 +71,7 @@ export default function Navbar() {
                     <a
                       href={link.href}
                       className={`text-sm font-medium tracking-wide transition-colors duration-200 ${
-                        isActive ? "text-[#00D4FF]" : "text-[#8892A4] hover:text-white"
+                        isActive ? "text-[#E87878]" : "text-[#A48888] hover:text-white"
                       }`}
                     >
                       {link.label}
@@ -79,7 +79,7 @@ export default function Navbar() {
                     {isActive && (
                       <motion.span
                         layoutId="nav-active"
-                        className="absolute -bottom-1 left-0 right-0 h-px bg-[#00D4FF]"
+                        className="absolute -bottom-1 left-0 right-0 h-px bg-[#E87878]"
                       />
                     )}
                   </li>
@@ -90,11 +90,11 @@ export default function Navbar() {
             {/* Language toggle */}
             <button
               onClick={toggle}
-              className="flex items-center gap-1 px-3 py-1 rounded-full border border-[#1a2540] hover:border-[#00D4FF]/40 transition-colors duration-200 text-xs font-semibold tracking-widest"
+              className="flex items-center gap-1 px-3 py-1 rounded-full border border-[#3c0000] hover:border-[#E87878]/40 transition-colors duration-200 text-xs font-semibold tracking-widest"
             >
-              <span className={lang === "en" ? "text-[#00D4FF]" : "text-[#8892A4]"}>EN</span>
-              <span className="text-[#1a2540]">/</span>
-              <span className={lang === "es" ? "text-[#00D4FF]" : "text-[#8892A4]"}>ES</span>
+              <span className={lang === "en" ? "text-[#E87878]" : "text-[#A48888]"}>EN</span>
+              <span className="text-[#3c0000]">/</span>
+              <span className={lang === "es" ? "text-[#E87878]" : "text-[#A48888]"}>ES</span>
             </button>
           </div>
 
@@ -102,21 +102,21 @@ export default function Navbar() {
           <div className="flex md:hidden items-center gap-3">
             <button
               onClick={toggle}
-              className="flex items-center gap-1 px-3 py-1 rounded-full border border-[#1a2540] hover:border-[#00D4FF]/40 transition-colors duration-200 text-xs font-semibold tracking-widest"
+              className="flex items-center gap-1 px-3 py-1 rounded-full border border-[#3c0000] hover:border-[#E87878]/40 transition-colors duration-200 text-xs font-semibold tracking-widest"
             >
-              <span className={lang === "en" ? "text-[#00D4FF]" : "text-[#8892A4]"}>EN</span>
-              <span className="text-[#1a2540]">/</span>
-              <span className={lang === "es" ? "text-[#00D4FF]" : "text-[#8892A4]"}>ES</span>
+              <span className={lang === "en" ? "text-[#E87878]" : "text-[#A48888]"}>EN</span>
+              <span className="text-[#3c0000]">/</span>
+              <span className={lang === "es" ? "text-[#E87878]" : "text-[#A48888]"}>ES</span>
             </button>
 
             <button
               onClick={() => setMenuOpen((v) => !v)}
-              className="w-9 h-9 flex flex-col items-center justify-center gap-1.5 rounded-full border border-[#1a2540] hover:border-[#00D4FF]/40 transition-colors duration-200"
+              className="w-9 h-9 flex flex-col items-center justify-center gap-1.5 rounded-full border border-[#3c0000] hover:border-[#E87878]/40 transition-colors duration-200"
               aria-label="Toggle menu"
             >
-              <span className={`block w-4 h-px bg-[#8892A4] transition-all duration-300 origin-center ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
-              <span className={`block w-4 h-px bg-[#8892A4] transition-all duration-300 ${menuOpen ? "opacity-0 scale-x-0" : ""}`} />
-              <span className={`block w-4 h-px bg-[#8892A4] transition-all duration-300 origin-center ${menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
+              <span className={`block w-4 h-px bg-[#A48888] transition-all duration-300 origin-center ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
+              <span className={`block w-4 h-px bg-[#A48888] transition-all duration-300 ${menuOpen ? "opacity-0 scale-x-0" : ""}`} />
+              <span className={`block w-4 h-px bg-[#A48888] transition-all duration-300 origin-center ${menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
             </button>
           </div>
         </div>
@@ -130,7 +130,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[4.5rem] z-40 mx-4 rounded-2xl border border-[#1a2540] bg-[#050810]/95 backdrop-blur-xl px-6 py-6 md:hidden"
+            className="fixed inset-x-0 top-[4.5rem] z-40 mx-4 rounded-2xl border border-[#3c0000] bg-[#0d0000]/95 backdrop-blur-xl px-6 py-6 md:hidden"
           >
             <ul className="flex flex-col gap-1">
               {LINKS.map((link) => {
@@ -140,11 +140,11 @@ export default function Navbar() {
                     <a
                       href={link.href}
                       onClick={handleLinkClick}
-                      className={`flex items-center gap-3 py-3 text-base font-medium tracking-wide transition-colors duration-200 border-b border-[#1a2540] last:border-0 ${
-                        isActive ? "text-[#00D4FF]" : "text-[#8892A4] hover:text-white"
+                      className={`flex items-center gap-3 py-3 text-base font-medium tracking-wide transition-colors duration-200 border-b border-[#3c0000] last:border-0 ${
+                        isActive ? "text-[#E87878]" : "text-[#A48888] hover:text-white"
                       }`}
                     >
-                      {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#00D4FF] flex-shrink-0" />}
+                      {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#E87878] flex-shrink-0" />}
                       {link.label}
                     </a>
                   </li>

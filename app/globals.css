@@ -1,16 +1,16 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 /* Sistema de diseño tech */
 :root {
-  --bg: #050810;
-  --bg-card: #0a0f1e;
-  --bg-surface: #0d1526;
-  --cyan: #00D4FF;
-  --violet: #7B61FF;
+  --bg: #0d0000;
+  --bg-card: #150000;
+  --bg-surface: #1a0000;
+  --cyan: #E87878;
+  --violet: #E89E6E;
   --text: #FFFFFF;
-  --text-secondary: #8892A4;
-  --border: #1a2540;
-  --border-hover: rgba(0, 212, 255, 0.4);
+  --text-secondary: #A48888;
+  --border: #3c0000;
+  --border-hover: rgba(232, 120, 120, 0.4);
 }
 
 @theme inline {

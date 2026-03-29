@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
@@ -53,7 +53,7 @@ export default function Contact() {
 
   return (
     <section id="contacto" className="py-24 md:py-32 px-6 relative overflow-hidden">
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#00D4FF]/20 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#E87878]/20 to-transparent" />
 
       <div className="max-w-5xl mx-auto" ref={ref}>
         <div className="mb-14">
@@ -61,9 +61,9 @@ export default function Contact() {
             initial={{ opacity: 0, x: -16 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="text-[#00D4FF] text-xs font-semibold tracking-[0.3em] uppercase mb-3 flex items-center gap-2"
+            className="text-[#E87878] text-xs font-semibold tracking-[0.3em] uppercase mb-3 flex items-center gap-2"
           >
-            <span className="w-6 h-px bg-[#00D4FF]" />
+            <span className="w-6 h-px bg-[#E87878]" />
             {tr.eyebrow}
           </motion.p>
           <motion.h2
@@ -73,7 +73,7 @@ export default function Contact() {
             className="text-4xl md:text-5xl font-bold text-white tracking-tight"
           >
             {tr.heading}
-            <span className="text-[#8892A4] font-light">{tr.heading_sub}</span>
+            <span className="text-[#A48888] font-light">{tr.heading_sub}</span>
           </motion.h2>
         </div>
 
@@ -85,7 +85,7 @@ export default function Contact() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="lg:col-span-2 flex flex-col gap-8"
           >
-            <p className="text-[#8892A4] text-base leading-relaxed">{tr.description}</p>
+            <p className="text-[#A48888] text-base leading-relaxed">{tr.description}</p>
 
             <div className="space-y-3">
               {tr.links.map((item, i) => (
@@ -94,22 +94,22 @@ export default function Contact() {
                   href={item.href}
                   target={item.href.startsWith("http") ? "_blank" : undefined}
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-3 p-3 border border-[#1a2540] hover:border-[#00D4FF]/30 bg-[#0a0f1e] hover:bg-[#00D4FF]/5 rounded-2xl transition-all duration-200"
+                  className="group flex items-center gap-3 p-3 border border-[#3c0000] hover:border-[#E87878]/30 bg-[#150000] hover:bg-[#E87878]/5 rounded-2xl transition-all duration-200"
                 >
-                  <span className="text-[#00D4FF] flex-shrink-0">{ICONS[i]}</span>
+                  <span className="text-[#E87878] flex-shrink-0">{ICONS[i]}</span>
                   <div>
-                    <p className="text-[10px] text-[#8892A4]/60 tracking-widest uppercase mb-0.5">{item.label}</p>
-                    <p className="text-sm text-[#8892A4] group-hover:text-white transition-colors">{item.value}</p>
+                    <p className="text-[10px] text-[#A48888]/60 tracking-widest uppercase mb-0.5">{item.label}</p>
+                    <p className="text-sm text-[#A48888] group-hover:text-white transition-colors">{item.value}</p>
                   </div>
-                  <svg className="w-4 h-4 text-[#8892A4]/30 group-hover:text-[#00D4FF] ml-auto transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-4 h-4 text-[#A48888]/30 group-hover:text-[#E87878] ml-auto transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </a>
               ))}
             </div>
 
-            <div className="flex items-center gap-2 text-sm text-[#8892A4]">
-              <span className="w-2 h-2 rounded-full bg-[#00D4FF] animate-pulse" />
+            <div className="flex items-center gap-2 text-sm text-[#A48888]">
+              <span className="w-2 h-2 rounded-full bg-[#E87878] animate-pulse" />
               {tr.availability}
             </div>
           </motion.div>
@@ -128,7 +128,7 @@ export default function Contact() {
                   { label: tr.form.email, name: "email", type: "email", placeholder: tr.form.email_placeholder },
                 ].map((f) => (
                   <div key={f.name}>
-                    <label className="block text-[10px] font-semibold tracking-widest uppercase text-[#8892A4]/60 mb-2">{f.label}</label>
+                    <label className="block text-[10px] font-semibold tracking-widest uppercase text-[#A48888]/60 mb-2">{f.label}</label>
                     <input
                       type={f.type}
                       name={f.name}
@@ -136,14 +136,14 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       placeholder={f.placeholder}
-                      className="w-full bg-[#0a0f1e] border border-[#1a2540] text-white text-sm px-4 py-3 rounded-xl focus:outline-none focus:border-[#00D4FF]/40 transition-colors placeholder-[#8892A4]/30"
+                      className="w-full bg-[#150000] border border-[#3c0000] text-white text-sm px-4 py-3 rounded-xl focus:outline-none focus:border-[#E87878]/40 transition-colors placeholder-[#A48888]/30"
                     />
                   </div>
                 ))}
               </div>
 
               <div>
-                <label className="block text-[10px] font-semibold tracking-widest uppercase text-[#8892A4]/60 mb-2">{tr.form.message}</label>
+                <label className="block text-[10px] font-semibold tracking-widest uppercase text-[#A48888]/60 mb-2">{tr.form.message}</label>
                 <textarea
                   name="mensaje"
                   value={form.mensaje}
@@ -151,7 +151,7 @@ export default function Contact() {
                   required
                   rows={5}
                   placeholder={tr.form.message_placeholder}
-                  className="w-full bg-[#0a0f1e] border border-[#1a2540] text-white text-sm px-4 py-3 rounded-xl focus:outline-none focus:border-[#00D4FF]/40 transition-colors placeholder-[#8892A4]/30 resize-none"
+                  className="w-full bg-[#150000] border border-[#3c0000] text-white text-sm px-4 py-3 rounded-xl focus:outline-none focus:border-[#E87878]/40 transition-colors placeholder-[#A48888]/30 resize-none"
                 />
               </div>
 
@@ -159,7 +159,7 @@ export default function Contact() {
                 type="submit"
                 disabled={status === "loading"}
                 className="w-full py-3.5 rounded-full text-white text-sm font-bold tracking-wide hover:opacity-90 transition-opacity flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
-                style={{ background: status === "error" ? "#ef4444" : "linear-gradient(135deg, #00D4FF 0%, #7B61FF 100%)" }}
+                style={{ background: status === "error" ? "#ef4444" : "linear-gradient(135deg, #E87878 0%, #E89E6E 100%)" }}
               >
                 {status === "sent" ? (
                   <><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>{tr.form.sent}</>

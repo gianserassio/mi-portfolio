@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
@@ -82,15 +82,15 @@ function TestimonialCard({ review, project, index }: { review: string; project: 
       initial={{ opacity: 0, y: 24 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: (index % 3) * 0.08, ease: "easeOut" }}
-      className="flex flex-col gap-4 p-6 rounded-3xl border border-[#1a2540] bg-[#0a0f1e] hover:border-[#00D4FF]/20 transition-colors duration-300"
+      className="flex flex-col gap-4 p-6 rounded-3xl border border-[#3c0000] bg-[#150000] hover:border-[#E87878]/20 transition-colors duration-300"
     >
       <Stars />
-      <p className="text-[#8892A4] text-sm leading-relaxed flex-1">"{review}"</p>
-      <div className="flex items-center gap-2 pt-3 border-t border-[#1a2540]">
+      <p className="text-[#A48888] text-sm leading-relaxed flex-1">"{review}"</p>
+      <div className="flex items-center gap-2 pt-3 border-t border-[#3c0000]">
         <svg className="w-3 h-3 text-[#14a800] fill-current flex-shrink-0" viewBox="0 0 24 24">
           <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.Safe703c-2.386 0-4.335 1.515-5.104 3.607-.731-.472-1.862-1.013-3.083-1.013C8.935 7.049 7.387 8.6 7.387 10.5c0 1.343.817 2.515 2.044 3.109l-.013.054C8.819 15.449 7.741 17.5 6.03 17.5c-1.343 0-2.494-1.012-2.703-2.338L1.5 16.027C2.129 18.303 4.181 20 6.03 20c2.489 0 4.472-1.843 5.238-4.429.474.117.969.179 1.481.179 2.386 0 4.335-1.516 5.104-3.607.366.109.751.168 1.149.168 2.703 0 4.998-2.295 4.998-4.998.001-2.703-2.294-4.998-4.997-4.858z"/>
         </svg>
-        <span className="text-[10px] font-mono text-[#8892A4]/50 tracking-wide truncate">{project}</span>
+        <span className="text-[10px] font-mono text-[#A48888]/50 tracking-wide truncate">{project}</span>
       </div>
     </motion.div>
   );
@@ -107,7 +107,7 @@ export default function Testimonials() {
   const hidden = TESTIMONIALS.slice(INITIAL_COUNT);
 
   return (
-    <section className="py-24 md:py-32 px-6 bg-[#070b14]">
+    <section className="py-24 md:py-32 px-6 bg-[#100000]">
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}
@@ -116,9 +116,9 @@ export default function Testimonials() {
             initial={{ opacity: 0, x: -16 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="text-[#00D4FF] text-xs font-semibold tracking-[0.3em] uppercase mb-3 flex items-center gap-2"
+            className="text-[#E87878] text-xs font-semibold tracking-[0.3em] uppercase mb-3 flex items-center gap-2"
           >
-            <span className="w-6 h-px bg-[#00D4FF]" />
+            <span className="w-6 h-px bg-[#E87878]" />
             {tr.eyebrow}
           </motion.p>
           <motion.h2
@@ -128,7 +128,7 @@ export default function Testimonials() {
             className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-10"
           >
             {tr.heading}
-            <span className="text-[#8892A4] font-light">{tr.heading_sub}</span>
+            <span className="text-[#A48888] font-light">{tr.heading_sub}</span>
           </motion.h2>
 
           {/* Upwork stats bar */}
@@ -136,27 +136,27 @@ export default function Testimonials() {
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-wrap items-center gap-6 p-5 rounded-2xl border border-[#1a2540] bg-[#0a0f1e]"
+            className="flex flex-wrap items-center gap-6 p-5 rounded-2xl border border-[#3c0000] bg-[#150000]"
           >
             {/* Upwork badge */}
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-full bg-[#14a800]/10 border border-[#14a800]/30 flex items-center justify-center flex-shrink-0">
                 <img src="/images/Logos programas/Upwork.png" alt="Upwork" className="w-5 h-5 object-contain" />
               </div>
-              <span className="text-xs font-semibold text-[#8892A4] tracking-wide">{tr.upwork_label}</span>
+              <span className="text-xs font-semibold text-[#A48888] tracking-wide">{tr.upwork_label}</span>
             </div>
 
-            <div className="w-px h-8 bg-[#1a2540]" />
+            <div className="w-px h-8 bg-[#3c0000]" />
 
             {/* Stats */}
             <div className="flex flex-wrap gap-6">
               <div>
                 <p className="text-xl font-bold text-white">{tr.projects_value}</p>
-                <p className="text-[10px] text-[#8892A4]/60 tracking-wide">{tr.projects_label}</p>
+                <p className="text-[10px] text-[#A48888]/60 tracking-wide">{tr.projects_label}</p>
               </div>
               <div>
                 <p className="text-xl font-bold text-[#14a800]">{tr.success_value}</p>
-                <p className="text-[10px] text-[#8892A4]/60 tracking-wide">{tr.success_label}</p>
+                <p className="text-[10px] text-[#A48888]/60 tracking-wide">{tr.success_label}</p>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="px-2.5 py-1 text-[10px] font-bold tracking-widest uppercase rounded-full bg-amber-400/10 text-amber-400 border border-amber-400/20">
@@ -170,7 +170,7 @@ export default function Testimonials() {
                 href={UPWORK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs font-medium text-[#8892A4] hover:text-[#14a800] transition-colors duration-200"
+                className="flex items-center gap-1.5 text-xs font-medium text-[#A48888] hover:text-[#14a800] transition-colors duration-200"
               >
                 {tr.view_profile}
                 <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -208,7 +208,7 @@ export default function Testimonials() {
         >
           <button
             onClick={() => setExpanded((v) => !v)}
-            className="flex items-center gap-2 px-6 py-3 rounded-full border border-[#1a2540] text-sm font-medium text-[#8892A4] hover:border-[#00D4FF]/40 hover:text-white transition-all duration-200"
+            className="flex items-center gap-2 px-6 py-3 rounded-full border border-[#3c0000] text-sm font-medium text-[#A48888] hover:border-[#E87878]/40 hover:text-white transition-all duration-200"
           >
             {expanded ? tr.view_less : tr.view_more}
             <svg

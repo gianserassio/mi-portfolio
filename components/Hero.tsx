@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
@@ -81,7 +81,7 @@ export default function Hero() {
   const tr = t[lang].hero;
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050810]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0d0000]">
       <CollageBackground tileLabels={tr.tile_labels} />
 
       {/* Overlay global */}
@@ -89,7 +89,7 @@ export default function Hero() {
         className="absolute inset-0 z-10 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 70% 70% at 50% 50%, rgba(5,8,16,0.20) 0%, rgba(5,8,16,0.55) 60%, rgba(5,8,16,0.88) 100%)",
+            "radial-gradient(ellipse 70% 70% at 50% 50%, rgba(13,0,0,0.20) 0%, rgba(13,0,0,0.55) 60%, rgba(13,0,0,0.88) 100%)",
         }}
       />
 
@@ -99,13 +99,13 @@ export default function Hero() {
           animate={{ opacity: [0.1, 0.2, 0.1] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full"
-          style={{ background: "radial-gradient(circle, rgba(0,212,255,0.18) 0%, transparent 65%)" }}
+          style={{ background: "radial-gradient(circle, rgba(232,120,120,0.18) 0%, transparent 65%)" }}
         />
         <motion.div
           animate={{ opacity: [0.06, 0.14, 0.06] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 4 }}
           className="absolute -bottom-40 -right-40 w-[700px] h-[700px] rounded-full"
-          style={{ background: "radial-gradient(circle, rgba(123,97,255,0.18) 0%, transparent 65%)" }}
+          style={{ background: "radial-gradient(circle, rgba(232,158,110,0.18) 0%, transparent 65%)" }}
         />
       </div>
 
@@ -116,7 +116,7 @@ export default function Hero() {
           className="absolute inset-0 -z-10 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 75% 85% at 50% 50%, rgba(5,8,16,0.72) 0%, rgba(5,8,16,0.45) 50%, transparent 100%)",
+              "radial-gradient(ellipse 75% 85% at 50% 50%, rgba(13,0,0,0.72) 0%, rgba(13,0,0,0.45) 50%, transparent 100%)",
             filter: "blur(18px)",
             transform: "scale(1.1)",
           }}
@@ -127,9 +127,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00D4FF]/20 bg-[#00D4FF]/5 text-[#00D4FF] text-xs font-medium tracking-widest uppercase mb-8"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#E87878]/20 bg-[#E87878]/5 text-[#E87878] text-xs font-medium tracking-widest uppercase mb-8"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00D4FF] animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#E87878] animate-pulse" />
           {tr.badge}
         </motion.div>
 
@@ -140,18 +140,18 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.35 }}
           className="flex items-center justify-center gap-4 md:gap-6 mb-4"
         >
-          <span className="text-[#00D4FF]/30 font-light select-none text-5xl md:text-7xl leading-none">[</span>
+          <span className="text-[#E87878]/30 font-light select-none text-5xl md:text-7xl leading-none">[</span>
           <h1 className="text-5xl md:text-8xl font-bold tracking-tight text-white leading-none">
             Giancarlo
             <br />
             <span
               className="text-transparent bg-clip-text"
-              style={{ backgroundImage: "linear-gradient(135deg, #00D4FF 0%, #7B61FF 100%)" }}
+              style={{ backgroundImage: "linear-gradient(135deg, #E87878 0%, #E89E6E 100%)" }}
             >
               Serassio
             </span>
           </h1>
-          <span className="text-[#7B61FF]/30 font-light select-none text-5xl md:text-7xl leading-none self-end pb-1">]</span>
+          <span className="text-[#E89E6E]/30 font-light select-none text-5xl md:text-7xl leading-none self-end pb-1">]</span>
         </motion.div>
 
         {/* Typewriter */}
@@ -161,9 +161,9 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="flex items-center justify-center gap-3 mb-6 h-8"
         >
-          <span className="text-[#8892A4] text-lg select-none">—</span>
+          <span className="text-[#A48888] text-lg select-none">—</span>
           <TypewriterText words={tr.roles as unknown as string[]} />
-          <span className="text-[#8892A4] text-lg select-none">—</span>
+          <span className="text-[#A48888] text-lg select-none">—</span>
         </motion.div>
 
         {/* Descripción */}
@@ -171,7 +171,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.75 }}
-          className="text-[#8892A4] text-base md:text-lg max-w-xl mx-auto mb-10 leading-relaxed"
+          className="text-[#A48888] text-base md:text-lg max-w-xl mx-auto mb-10 leading-relaxed"
         >
           {tr.description}
         </motion.p>
@@ -185,7 +185,7 @@ export default function Hero() {
         >
           <a
             href="#proyectos"
-            className="group px-7 py-3 rounded-full bg-[#00D4FF] text-[#050810] text-sm font-bold tracking-wide hover:bg-white transition-colors duration-200 flex items-center gap-2"
+            className="group px-7 py-3 rounded-full bg-[#E87878] text-[#0d0000] text-sm font-bold tracking-wide hover:bg-white transition-colors duration-200 flex items-center gap-2"
           >
             {tr.cta_primary}
             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -194,9 +194,20 @@ export default function Hero() {
           </a>
           <a
             href="#contacto"
-            className="px-7 py-3 rounded-full border border-[#1a2540] text-sm font-medium text-[#8892A4] hover:border-[#00D4FF]/40 hover:text-white transition-colors duration-200"
+            className="px-7 py-3 rounded-full border border-white/25 text-sm font-medium text-white/70 hover:border-white/60 hover:text-white transition-colors duration-200"
           >
             {tr.cta_secondary}
+          </a>
+          <a
+            href="https://www.instagram.com/gianserassio/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-7 py-3 rounded-full border border-white/25 text-sm font-medium text-white/70 hover:border-pink-400/60 hover:text-pink-400 transition-colors duration-200 flex items-center gap-2"
+          >
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            Instagram
           </a>
         </motion.div>
 
@@ -210,7 +221,7 @@ export default function Hero() {
           {tr.stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-2xl font-bold text-white">{stat.value}</div>
-              <div className="text-xs text-[#8892A4] mt-1 tracking-wide">{stat.label}</div>
+              <div className="text-xs text-[#A48888] mt-1 tracking-wide">{stat.label}</div>
             </div>
           ))}
         </motion.div>
@@ -226,9 +237,9 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          className="w-5 h-8 rounded-full border border-[#1a2540] flex items-start justify-center pt-1.5"
+          className="w-5 h-8 rounded-full border border-[#3c0000] flex items-start justify-center pt-1.5"
         >
-          <div className="w-1 h-2 rounded-full bg-[#00D4FF]" />
+          <div className="w-1 h-2 rounded-full bg-[#E87878]" />
         </motion.div>
       </motion.div>
     </section>
@@ -256,7 +267,7 @@ function CollageBackground({ tileLabels }: { tileLabels: Record<number, string> 
             quality={85}
             priority={i < 4}
           />
-          <div className="absolute inset-0 bg-[#050810]/10" />
+          <div className="absolute inset-0 bg-[#0d0000]/10" />
           <div className="absolute bottom-2 left-3 z-10">
             <span className="text-[9px] font-semibold tracking-[0.2em] uppercase text-white/40">
               {tileLabels[tile.id]}
@@ -298,7 +309,7 @@ function TypewriterText({ words }: { words: string[] }) {
   }, [displayed, deleting, index, words]);
 
   return (
-    <span className="text-base md:text-lg font-semibold text-[#00D4FF] min-w-[180px] text-left inline-block">
+    <span className="text-base md:text-lg font-semibold text-[#E87878] min-w-[180px] text-left inline-block">
       {displayed}<span className="animate-pulse">|</span>
     </span>
   );
