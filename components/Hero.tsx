@@ -309,7 +309,7 @@ function TypewriterText({ words }: { words: string[] }) {
   }, [displayed, deleting, index, words]);
 
   return (
-    <span className="text-base md:text-lg font-semibold text-[#E87878] min-w-[180px] text-left inline-block">
+    <span className="text-base md:text-lg font-semibold text-[#E87878] text-center inline-block">
       {displayed}<span className="animate-pulse">|</span>
     </span>
   );

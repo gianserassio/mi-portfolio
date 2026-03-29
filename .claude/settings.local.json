@@ -18,7 +18,8 @@
       "Bash(powershell -command \":*)",
       "Bash(taskkill /PID 25592 /F)",
       "Bash(gh auth:*)",
-      "Bash(timeout 10)"
+      "Bash(timeout 10)",
+      "Bash(grep -c \"sm:\\\\|md:\\\\|lg:\" components/*.tsx)"
     ]
   }
 }
