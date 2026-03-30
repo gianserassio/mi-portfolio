@@ -8,12 +8,12 @@ import { t } from "@/lib/translations";
 
 /* ─── Tools ────────────────────────────────────────────────────────── */
 const TOOLS = [
-  { name: "Blender",       logo: "/images/Logos programas/Blender.png" },
-  { name: "Photoshop",     logo: "/images/Logos programas/Photoshop.png" },
-  { name: "Illustrator",   logo: "/images/Logos programas/Illustrator.png" },
-  { name: "After Effects", logo: "/images/Logos programas/After Effects.png" },
-  { name: "Solidworks",    logo: "/images/Logos programas/Solidworks.png" },
-  { name: "Fusion 360",    logo: "/images/Logos programas/Fusion.png" },
+  { name: "Blender",       logo: "/images/Logos programas/Blender.webp" },
+  { name: "Photoshop",     logo: "/images/Logos programas/Photoshop.webp" },
+  { name: "Illustrator",   logo: "/images/Logos programas/Illustrator.webp" },
+  { name: "After Effects", logo: "/images/Logos programas/After Effects.webp" },
+  { name: "Solidworks",    logo: "/images/Logos programas/Solidworks.webp" },
+  { name: "Fusion 360",    logo: "/images/Logos programas/Fusion.webp" },
 ];
 
 export default function About() {
@@ -53,7 +53,7 @@ export default function About() {
             {/* Photo */}
             <div className="relative w-full max-w-sm aspect-[3/2] rounded-2xl overflow-hidden border border-[#3c0000]">
               <Image
-                src="/images/Foto perfil.JPEG"
+                src="/images/Foto perfil.webp"
                 alt="Giancarlo Serassio — Industrial Designer"
                 fill
                 className="object-cover object-center"

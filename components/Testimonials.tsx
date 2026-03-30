@@ -141,7 +141,7 @@ export default function Testimonials() {
             {/* Upwork badge */}
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-full bg-[#14a800]/10 border border-[#14a800]/30 flex items-center justify-center flex-shrink-0">
-                <img src="/images/Logos programas/Upwork.png" alt="Upwork" className="w-5 h-5 object-contain" />
+                <img src="/images/Logos programas/Upwork.webp" alt="Upwork" className="w-5 h-5 object-contain" />
               </div>
               <span className="text-xs font-semibold text-[#A48888] tracking-wide">{tr.upwork_label}</span>
             </div>

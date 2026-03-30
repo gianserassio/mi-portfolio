@@ -17,61 +17,61 @@ const TILES = [
   // Col 1 · Row 1-2 — portrait 0.67
   {
     id: 1 as const,
-    image: "/images/Imagenes fondo/hf_20260322_163656_d0e12f17-6908-4a71-a0b4-ca35fe60c1a2.png",
+    image: "/images/Imagenes fondo/hf_20260322_163656_d0e12f17-6908-4a71-a0b4-ca35fe60c1a2.webp",
     col: "col-span-1", row: "row-span-2", colStart: "col-start-1", rowStart: "row-start-1",
   },
   // Col 2 · Row 1 — landscape 1.79
   {
     id: 2 as const,
-    image: "/images/Imagenes fondo/hf_20260322_164140_d490a045-1c4c-422f-90ba-38ce50c58d67.jpeg",
+    image: "/images/Imagenes fondo/hf_20260322_164140_d490a045-1c4c-422f-90ba-38ce50c58d67.webp",
     col: "col-span-1", row: "row-span-1", colStart: "col-start-2", rowStart: "row-start-1",
   },
   // Col 3 · Row 1 — landscape 1.49
   {
     id: 3 as const,
-    image: "/images/Imagenes fondo/hf_20260322_164007_be220f3b-9573-4509-ac86-5d8a7e8237a5.jpeg",
+    image: "/images/Imagenes fondo/hf_20260322_164007_be220f3b-9573-4509-ac86-5d8a7e8237a5.webp",
     col: "col-span-1", row: "row-span-1", colStart: "col-start-3", rowStart: "row-start-1",
   },
   // Col 4 · Row 1-2 — portrait tall 0.56
   {
     id: 4 as const,
-    image: "/images/Imagenes fondo/hf_20260322_165330_c2ccd9ed-9459-4e7a-b600-4e0dda42f865.jpeg",
+    image: "/images/Imagenes fondo/hf_20260322_165330_c2ccd9ed-9459-4e7a-b600-4e0dda42f865.webp",
     col: "col-span-1", row: "row-span-2", colStart: "col-start-4", rowStart: "row-start-1",
   },
   // Col 2 · Row 2 — square 1.0
   {
     id: 5 as const,
-    image: "/images/Imagenes fondo/C2693_V2.png",
+    image: "/images/Imagenes fondo/C2693_V2.webp",
     col: "col-span-1", row: "row-span-1", colStart: "col-start-2", rowStart: "row-start-2",
   },
   // Col 3 · Row 2 — portrait 0.67
   {
     id: 6 as const,
-    image: "/images/Imagenes fondo/hf_20260322_163830_329e85e2-441c-4e9e-89a3-eae5257a1685.jpeg",
+    image: "/images/Imagenes fondo/hf_20260322_163830_329e85e2-441c-4e9e-89a3-eae5257a1685.webp",
     col: "col-span-1", row: "row-span-1", colStart: "col-start-3", rowStart: "row-start-2",
   },
   // Col 1 · Row 3 — landscape 1.33
   {
     id: 7 as const,
-    image: "/images/Imagenes fondo/hf_20260322_164726_67a69235-ce0e-4607-9a0a-3fb0db487d7e.png",
+    image: "/images/Imagenes fondo/hf_20260322_164726_67a69235-ce0e-4607-9a0a-3fb0db487d7e.webp",
     col: "col-span-1", row: "row-span-1", colStart: "col-start-1", rowStart: "row-start-3",
   },
   // Col 2 · Row 3 — portrait tall 0.56
   {
     id: 8 as const,
-    image: "/images/Imagenes fondo/hf_20260322_165501_d70350f8-d9d4-4e65-bebb-d5ba95fef175.jpeg",
+    image: "/images/Imagenes fondo/hf_20260322_165501_d70350f8-d9d4-4e65-bebb-d5ba95fef175.webp",
     col: "col-span-1", row: "row-span-1", colStart: "col-start-2", rowStart: "row-start-3",
   },
   // Col 3 · Row 3 — landscape 1.34
   {
     id: 9 as const,
-    image: "/images/Imagenes fondo/hf_20260322_165652_0cd2acd4-f7c7-4122-a7e9-1da5ab070cff (1).png",
+    image: "/images/Imagenes fondo/hf_20260322_165652_0cd2acd4-f7c7-4122-a7e9-1da5ab070cff (1).webp",
     col: "col-span-1", row: "row-span-1", colStart: "col-start-3", rowStart: "row-start-3",
   },
   // Col 4 · Row 3 — landscape 1.34
   {
     id: 10 as const,
-    image: "/images/Imagenes fondo/hf_20260322_164842_029ac075-0d61-487b-8569-a26483a8db90.jpeg",
+    image: "/images/Imagenes fondo/hf_20260322_164842_029ac075-0d61-487b-8569-a26483a8db90.webp",
     col: "col-span-1", row: "row-span-1", colStart: "col-start-4", rowStart: "row-start-3",
   },
 ];
