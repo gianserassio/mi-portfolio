@@ -103,12 +103,12 @@ export const t = {
     about: {
       eyebrow: "About me",
       heading: "Designer who",
-      heading_italic: "thinks in 3D",
-      bio1: "I'm Giancarlo Serassio, an industrial designer with over 7 years creating products and visualizations that balance technical precision and visual impact. My work spans from ideation to production-ready renders.",
-      bio2: "I collaborate with design studios, consumer brands and technology startups to bring their products to life through advanced modelling, visualization and motion design. I also integrate AI, web development and automations to deliver more complete solutions.",
+      heading_italic: "designs, builds & automates",
+      bio1: "I'm Giancarlo Serassio, an industrial designer with over 7 years turning ideas into polished products — from 3D models and production-ready renders to custom websites and workflow automations that help brands run smoother.",
+      bio2: "I work across three layers: 3D visualization and motion design to show products at their best; web development to build the sites that sell them; and n8n automations and AI integrations to connect the tools that run the business.",
       tools_label: "Tools",
       proficiency_label: "Proficiency",
-      services_label: "I also work with",
+      services_label: "Services",
       services: [
         { name: "AI Integration", desc: "Claude, Nano Banana Pro, Kling AI, Sora, Runway Gen-3, Midjourney" },
         { name: "Web Development", desc: "Custom sites adapted to products and brands" },
@@ -122,7 +122,7 @@ export const t = {
       heading: "Let's work",
       heading_sub: " together",
       description:
-        "Available for freelance projects, collaborations and consulting, but also open to joining a team on a permanent basis. If you're looking for a 3D designer with strong criteria and drive to grow, let's talk.",
+        "Available for freelance projects, collaborations and consulting, but also open to joining a team on a permanent basis. If you're looking for a designer who covers 3D, web and automation with strong criteria and drive to grow, let's talk.",
       availability: "Available — freelance or full-time",
       links: [
         { label: "Email", value: "gianserassio@gmail.com", href: "mailto:gianserassio@gmail.com" },
@@ -261,12 +261,12 @@ export const t = {
     about: {
       eyebrow: "Sobre mí",
       heading: "Diseñador que",
-      heading_italic: "piensa en 3D",
-      bio1: "Soy Giancarlo Serassio, diseñador industrial con más de 7 años creando productos y visualizaciones que equilibran precisión técnica e impacto visual. Mi trabajo va desde la ideación hasta renders listos para producción.",
-      bio2: "Colaboro con estudios de diseño, marcas de consumo y startups de tecnología para dar vida a sus productos a través de modelado avanzado, visualización y motion design. Además integro IA, desarrollo web y automatizaciones para ofrecer soluciones más completas.",
+      heading_italic: "diseña, construye y automatiza",
+      bio1: "Soy Giancarlo Serassio, diseñador industrial con más de 7 años convirtiendo ideas en productos pulidos — desde modelado 3D y renders listos para producción hasta sitios web a medida y automatizaciones que hacen que las marcas funcionen mejor.",
+      bio2: "Trabajo en tres capas: visualización 3D y motion design para mostrar los productos en su mejor versión; desarrollo web para construir los sitios que los venden; y automatizaciones con n8n e IA para conectar las herramientas que hacen correr el negocio.",
       tools_label: "Herramientas",
       proficiency_label: "Nivel de dominio",
-      services_label: "También trabajo con",
+      services_label: "Servicios",
       services: [
         { name: "Integración de IA", desc: "Claude, Nano Banana Pro, Kling AI, Sora, Runway Gen-3, Midjourney" },
         { name: "Desarrollo web", desc: "Sitios adaptados a producto y marca" },
@@ -279,7 +279,7 @@ export const t = {
       heading: "Trabajemos",
       heading_sub: " juntos",
       description:
-        "Disponible para proyectos freelance, colaboraciones y consultoría, pero también abierto a incorporarme a un equipo de forma permanente. Si buscás un diseñador 3D con criterio propio y ganas de crecer, hablemos.",
+        "Disponible para proyectos freelance, colaboraciones y consultoría, pero también abierto a incorporarme a un equipo de forma permanente. Si buscás un diseñador que cubra 3D, web y automatización con criterio propio y ganas de crecer, hablemos.",
       availability: "Disponible — freelance o posición fija",
       links: [
         { label: "Email", value: "gianserassio@gmail.com", href: "mailto:gianserassio@gmail.com" },
