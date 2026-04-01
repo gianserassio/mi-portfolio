@@ -36,7 +36,7 @@ const WEB_PROJECTS = [
     },
     tags: ["Next.js", "Tailwind CSS", "Vercel"],
     año: "2025",
-    url: null,
+    url: "https://www.evirost.com/",
     cover: "/images/Webs/Evi Rost.png",
   },
 ];
