@@ -43,7 +43,7 @@ export default function Contact() {
       });
       if (!res.ok) throw new Error();
       setStatus("sent");
-      setForm({ nombre: "", email: "", mensaje: "" });
+      setForm({ nombre: "", email: "", mensaje: "", website: "" });
       setTimeout(() => setStatus("idle"), 5000);
     } catch {
       setStatus("error");
