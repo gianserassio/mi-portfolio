@@ -112,7 +112,9 @@ export default function Navbar() {
             <button
               onClick={() => setMenuOpen((v) => !v)}
               className="w-9 h-9 flex flex-col items-center justify-center gap-1.5 rounded-full border border-[#3c0000] hover:border-[#E87878]/40 transition-colors duration-200"
-              aria-label="Toggle menu"
+              aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
             >
               <span className={`block w-4 h-px bg-[#A48888] transition-all duration-300 origin-center ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
               <span className={`block w-4 h-px bg-[#A48888] transition-all duration-300 ${menuOpen ? "opacity-0 scale-x-0" : ""}`} />
@@ -126,6 +128,7 @@ export default function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}

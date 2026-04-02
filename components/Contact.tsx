@@ -25,7 +25,7 @@ export default function Contact() {
   const { lang } = useLanguage();
   const tr = t[lang].contact;
 
-  const [form, setForm] = useState({ nombre: "", email: "", mensaje: "" });
+  const [form, setForm] = useState({ nombre: "", email: "", mensaje: "", website: "" });
   const [status, setStatus] = useState<"idle" | "loading" | "sent" | "error">("idle");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -122,6 +122,17 @@ export default function Contact() {
             className="lg:col-span-3"
           >
             <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Honeypot — invisible para humanos, los bots lo rellenan */}
+              <input
+                type="text"
+                name="website"
+                value={form.website}
+                onChange={handleChange}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                style={{ display: "none" }}
+              />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   { label: tr.form.name, name: "nombre", type: "text", placeholder: tr.form.name_placeholder },
