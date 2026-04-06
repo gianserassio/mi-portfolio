@@ -103,16 +103,16 @@ export const t = {
     about: {
       eyebrow: "About me",
       heading: "Designer who",
-      heading_italic: "designs, builds & automates",
-      bio1: "I'm Giancarlo Serassio, an industrial designer with over 7 years turning ideas into polished products — from 3D models and production-ready renders to custom websites and workflow automations that help brands run smoother.",
-      bio2: "I work across three layers: 3D visualization and motion design to show products at their best; web development to build the sites that sell them; and n8n automations and AI integrations to connect the tools that run the business.",
+      heading_italic: "designs, builds, automates & advertises",
+      bio1: "I'm Giancarlo Serassio — I help brands look sharp, sell more, and run smarter.",
+      bio2: "Over 7 years building across design, web, and marketing: 3D visualization and motion to show products at their best; custom websites that convert; automations and AI to cut the busywork; and Meta Ads campaigns to reach the right people.",
       tools_label: "Tools",
       proficiency_label: "Proficiency",
       services_label: "Services",
       services: [
-        { name: "AI Integration", desc: "Claude, Nano Banana Pro, Kling AI, Sora, Runway Gen-3, Midjourney" },
         { name: "Web Development", desc: "Custom sites adapted to products and brands" },
-        { name: "n8n Automation", desc: "Custom chatbots and integrations" },
+        { name: "Automation & AI", desc: "n8n workflows, chatbots and AI integrations to streamline your business" },
+        { name: "Meta Ads", desc: "Ad campaigns on Facebook & Instagram to drive results and grow your brand" },
       ],
     },
 
@@ -261,16 +261,16 @@ export const t = {
     about: {
       eyebrow: "Sobre mí",
       heading: "Diseñador que",
-      heading_italic: "diseña, construye y automatiza",
-      bio1: "Soy Giancarlo Serassio, diseñador industrial con más de 7 años convirtiendo ideas en productos pulidos — desde modelado 3D y renders listos para producción hasta sitios web a medida y automatizaciones que hacen que las marcas funcionen mejor.",
-      bio2: "Trabajo en tres capas: visualización 3D y motion design para mostrar los productos en su mejor versión; desarrollo web para construir los sitios que los venden; y automatizaciones con n8n e IA para conectar las herramientas que hacen correr el negocio.",
+      heading_italic: "diseña, construye, automatiza y publicita",
+      bio1: "Soy Giancarlo Serassio — ayudo a las marcas a verse bien, vender más y funcionar mejor.",
+      bio2: "Más de 7 años construyendo en diseño, web y marketing: visualización 3D y motion para mostrar productos en su mejor versión; sitios web que convierten; automatizaciones e IA para eliminar el trabajo repetitivo; y campañas de Meta Ads para llegar a las personas correctas.",
       tools_label: "Herramientas",
       proficiency_label: "Nivel de dominio",
       services_label: "Servicios",
       services: [
-        { name: "Integración de IA", desc: "Claude, Nano Banana Pro, Kling AI, Sora, Runway Gen-3, Midjourney" },
         { name: "Desarrollo web", desc: "Sitios adaptados a producto y marca" },
-        { name: "Automatización n8n", desc: "Chatbots e integraciones personalizadas" },
+        { name: "Automatización & IA", desc: "Flujos con n8n, chatbots e integraciones de IA para optimizar tu negocio" },
+        { name: "Meta Ads", desc: "Campañas publicitarias en Facebook e Instagram para generar resultados y hacer crecer tu marca" },
       ],
     },
 
