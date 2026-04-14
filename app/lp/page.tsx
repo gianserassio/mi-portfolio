@@ -460,7 +460,7 @@ function ProcessSection() {
     {
       num: "1",
       title: "Diagnóstico gratuito",
-      desc: "Me contás sobre tu negocio y objetivos. Analizo tu situación actual y te digo qué oportunidades tenés en Meta.",
+      desc: "Revisamos tu cuenta publicitaria (o tu negocio si arrancás de cero), identificamos errores y oportunidades, y te doy un plan de acción concreto.",
     },
     {
       num: "2",
@@ -590,9 +590,24 @@ function CtaSection() {
               gratuito
             </span>
           </h2>
-          <p className="text-[#A48888] text-base leading-relaxed">
-            Sin compromiso. Te cuento qué oportunidades tiene tu negocio en Meta Ads y cómo podemos trabajar juntos.
+          <p className="text-[#A48888] text-base leading-relaxed mb-6">
+            Sin compromiso ni costo. En una llamada de 30 minutos analizamos tu situación y te llevo un plan de acción real.
           </p>
+
+          {/* What's included in diagnostic */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left mb-2">
+            {[
+              { icon: "🔍", text: "Revisión de tu cuenta publicitaria o situación actual" },
+              { icon: "🎯", text: "Identificación de audiencias ideales para tu negocio" },
+              { icon: "⚡", text: "Detección de errores que están quemando tu presupuesto" },
+              { icon: "📋", text: "Plan de acción con 3–5 puntos concretos para arrancar" },
+            ].map((item) => (
+              <div key={item.text} className="flex items-start gap-2.5 p-3 rounded-xl border border-[#3c0000] bg-[#0d0000]">
+                <span className="text-base flex-shrink-0">{item.icon}</span>
+                <span className="text-sm text-[#A48888] leading-snug">{item.text}</span>
+              </div>
+            ))}
+          </div>
         </motion.div>
 
         <motion.div
