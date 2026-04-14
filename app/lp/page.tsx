@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 
 /* ─── Config ──────────────────────────────────────────────────────────── */
-const WHATSAPP_NUMBER = "5491100000000"; // reemplazá con tu número real
+const WHATSAPP_NUMBER = "543472581024";
 const WHATSAPP_MSG = encodeURIComponent(
   "Hola Giancarlo, vi tu anuncio y quiero saber más sobre tus servicios de Meta Ads."
 );
