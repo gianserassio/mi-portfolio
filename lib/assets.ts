@@ -4,5 +4,6 @@ export function assetUrl(path: string) {
   if (!ASSETS_BASE_URL) return path;
   if (path.startsWith("http://") || path.startsWith("https://")) return path;
   const encodedPath = encodeURI(path);
-  return encodedPath.startsWith("/") ? `${ASSETS_BASE_URL}${encodedPath}` : `${ASSETS_BASE_URL}/${encodedPath}`;
+  const remotePath = encodedPath.startsWith("/images/") ? encodedPath.slice(7) : encodedPath;
+  return remotePath.startsWith("/") ? `${ASSETS_BASE_URL}${remotePath}` : `${ASSETS_BASE_URL}/${remotePath}`;
 }
