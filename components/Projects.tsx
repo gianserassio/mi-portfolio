@@ -338,15 +338,22 @@ function ProjectCard({
       {/* Image area */}
       <div className="relative h-52 bg-[#1a0000] overflow-hidden flex-shrink-0">
         {images?.cover ? (
-          <Image
-            src={images.cover}
-            alt={project.titulo}
-            fill
-            className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
-            sizes="(max-width: 768px) 100vw, 33vw"
-            quality={85}
-            unoptimized={!!ASSETS_BASE_URL}
-          />
+          !!ASSETS_BASE_URL ? (
+            <img
+              src={images.cover}
+              alt={project.titulo}
+              className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <Image
+              src={images.cover}
+              alt={project.titulo}
+              fill
+              className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 33vw"
+              quality={85}
+            />
+          )
         ) : (
           <>
             <svg className="absolute inset-0 w-full h-full opacity-[0.06]" xmlns="http://www.w3.org/2000/svg">
@@ -461,15 +468,22 @@ function ProjectGallery({
               onClick={() => setZoomed(i)}
               className="relative aspect-square rounded-xl overflow-hidden group/img bg-[#150000]"
             >
-              <Image
-                src={src}
-                alt={`${title} ${i + 1}`}
-                fill
-                className="object-cover transition-transform duration-300 group-hover/img:scale-105"
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
-                quality={70}
-                unoptimized={!!ASSETS_BASE_URL}
-              />
+              {!!ASSETS_BASE_URL ? (
+                <img
+                  src={src}
+                  alt={`${title} ${i + 1}`}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-105"
+                />
+              ) : (
+                <Image
+                  src={src}
+                  alt={`${title} ${i + 1}`}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover/img:scale-105"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                  quality={70}
+                />
+              )}
               <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/20 transition-colors duration-200" />
               <span className="absolute bottom-1.5 right-2 text-[9px] font-mono text-white/40 opacity-0 group-hover/img:opacity-100 transition-opacity">
                 {i + 1}
@@ -503,16 +517,24 @@ function ProjectGallery({
           {/* Zoomed image */}
           <div className="flex-1 flex items-center justify-center px-16 min-h-0 relative" onClick={(e) => e.stopPropagation()}>
             <div className="relative w-full h-full max-w-3xl">
-              <Image
-                key={zoomed}
-                src={images[zoomed]}
-                alt={`${title} ${zoomed + 1}`}
-                fill
-                className="object-contain"
-                quality={90}
-                sizes="(max-width: 768px) 100vw, 70vw"
-                unoptimized={!!ASSETS_BASE_URL}
-              />
+              {!!ASSETS_BASE_URL ? (
+                <img
+                  key={zoomed}
+                  src={images[zoomed]}
+                  alt={`${title} ${zoomed + 1}`}
+                  className="max-w-full max-h-full object-contain"
+                />
+              ) : (
+                <Image
+                  key={zoomed}
+                  src={images[zoomed]}
+                  alt={`${title} ${zoomed + 1}`}
+                  fill
+                  className="object-contain"
+                  quality={90}
+                  sizes="(max-width: 768px) 100vw, 70vw"
+                />
+              )}
             </div>
             <button
               onClick={prevZoom}
