@@ -29,6 +29,16 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## Assets externos (Cloudflare R2)
+
+Si deseas servir renders desde Cloudflare R2 o un dominio de assets externo, define esta variable de entorno en tu `.env.local`:
+
+```env
+NEXT_PUBLIC_ASSETS_BASE_URL=https://assets.tu-dominio.com
+```
+
+Con eso, las rutas de imagen de proyectos usarán ese host en producción y seguirán funcionando localmente si no defines la variable.
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.

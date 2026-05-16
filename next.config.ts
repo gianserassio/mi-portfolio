@@ -26,10 +26,28 @@ const securityHeaders = [
   },
 ];
 
+const assetHost = process.env.NEXT_PUBLIC_ASSETS_BASE_URL ?? "";
+
+const remoteImagePattern = assetHost
+  ? (() => {
+      try {
+        const url = new URL(assetHost);
+        return {
+          protocol: url.protocol.replace(":", ""),
+          hostname: url.hostname,
+          pathname: `${url.pathname.replace(/\/$/, "")}/**`,
+        };
+      } catch {
+        return undefined;
+      }
+    })()
+  : undefined;
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
     qualities: [75, 85],
+    remotePatterns: remoteImagePattern ? [remoteImagePattern as any] : [],
   },
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];

@@ -5,6 +5,7 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/lib/translations";
+import { assetUrl } from "@/lib/assets";
 
 const BADGE: Record<string, { bg: string; text: string; dot: string }> = {
   "3D Modeling":  { bg: "bg-[#E87878]/10", text: "text-[#E87878]", dot: "bg-[#E87878]" },
@@ -266,15 +267,24 @@ export default function Projects() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {tr.items.map((p, i) => (
-              <ProjectCard
-                key={i}
-                project={p}
-                index={i}
-                images={PROJECT_IMAGES[i]}
-                onOpenGallery={(imgs) => setGallery({ images: imgs, title: p.titulo })}
-              />
-            ))}
+            {tr.items.map((p, i) => {
+              const remoteImages = PROJECT_IMAGES[i]
+                ? {
+                    cover: assetUrl(PROJECT_IMAGES[i].cover),
+                    gallery: PROJECT_IMAGES[i].gallery.map(assetUrl),
+                  }
+                : undefined;
+
+              return (
+                <ProjectCard
+                  key={i}
+                  project={p}
+                  index={i}
+                  images={remoteImages}
+                  onOpenGallery={(imgs) => setGallery({ images: imgs, title: p.titulo })}
+                />
+              );
+            })}
           </div>
         </div>
       </section>
