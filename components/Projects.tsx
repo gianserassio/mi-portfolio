@@ -5,7 +5,7 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/lib/translations";
-import { assetUrl } from "@/lib/assets";
+import { ASSETS_BASE_URL, assetUrl } from "@/lib/assets";
 
 const BADGE: Record<string, { bg: string; text: string; dot: string }> = {
   "3D Modeling":  { bg: "bg-[#E87878]/10", text: "text-[#E87878]", dot: "bg-[#E87878]" },
@@ -345,6 +345,7 @@ function ProjectCard({
             className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, 33vw"
             quality={85}
+            unoptimized={!!ASSETS_BASE_URL}
           />
         ) : (
           <>
@@ -467,6 +468,7 @@ function ProjectGallery({
                 className="object-cover transition-transform duration-300 group-hover/img:scale-105"
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
                 quality={70}
+                unoptimized={!!ASSETS_BASE_URL}
               />
               <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/20 transition-colors duration-200" />
               <span className="absolute bottom-1.5 right-2 text-[9px] font-mono text-white/40 opacity-0 group-hover/img:opacity-100 transition-opacity">
@@ -509,6 +511,7 @@ function ProjectGallery({
                 className="object-contain"
                 quality={90}
                 sizes="(max-width: 768px) 100vw, 70vw"
+                unoptimized={!!ASSETS_BASE_URL}
               />
             </div>
             <button
