@@ -5,15 +5,16 @@ import { useRef } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/lib/translations";
+import { assetUrl } from "@/lib/assets";
 
 /* ─── Tools ────────────────────────────────────────────────────────── */
 const TOOLS = [
-  { name: "Blender",       logo: "/images/Logos programas/Blender.webp" },
-  { name: "Photoshop",     logo: "/images/Logos programas/Photoshop.webp" },
-  { name: "Illustrator",   logo: "/images/Logos programas/Illustrator.webp" },
-  { name: "After Effects", logo: "/images/Logos programas/After Effects.webp" },
-  { name: "Solidworks",    logo: "/images/Logos programas/Solidworks.webp" },
-  { name: "Fusion 360",    logo: "/images/Logos programas/Fusion.webp" },
+  { name: "Blender",       logo: assetUrl("/images/Logos programas/Blender.webp") },
+  { name: "Photoshop",     logo: assetUrl("/images/Logos programas/Photoshop.webp") },
+  { name: "Illustrator",   logo: assetUrl("/images/Logos programas/Illustrator.webp") },
+  { name: "After Effects", logo: assetUrl("/images/Logos programas/After Effects.webp") },
+  { name: "Solidworks",    logo: assetUrl("/images/Logos programas/Solidworks.webp") },
+  { name: "Fusion 360",    logo: assetUrl("/images/Logos programas/Fusion.webp") },
 ];
 
 export default function About() {
@@ -53,7 +54,7 @@ export default function About() {
             {/* Photo */}
             <div className="relative w-full max-w-sm aspect-[3/2] rounded-2xl overflow-hidden border border-[#3c0000]">
               <Image
-                src="/images/Foto perfil.webp"
+                src={assetUrl("/images/Foto perfil.webp")}
                 alt="Giancarlo Serassio — Industrial Designer"
                 fill
                 className="object-cover object-center"

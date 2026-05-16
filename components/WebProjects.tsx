@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { assetUrl } from "@/lib/assets";
 
 const WEB_PROJECTS = [
   {
@@ -15,7 +16,7 @@ const WEB_PROJECTS = [
     tags: ["Next.js", "Tailwind CSS", "Vercel"],
     año: "2025",
     url: "https://www.liclucasserassio.com/",
-    cover: "/images/Webs/Lic Lucas Serassio.png",
+    cover: assetUrl("/images/Webs/Lic Lucas Serassio.png"),
   },
   {
     titulo: { en: "Annapurna Outdoors", es: "Annapurna Outdoors" },
@@ -26,7 +27,7 @@ const WEB_PROJECTS = [
     tags: ["Shopify", "CSS", "UX"],
     año: "2025",
     url: "https://www.annapurnaoutdoors.com/",
-    cover: "/images/Webs/Annapurna.png",
+    cover: assetUrl("/images/Webs/Annapurna.png"),
   },
   {
     titulo: { en: "Evi Rost", es: "Evi Rost" },
@@ -37,7 +38,7 @@ const WEB_PROJECTS = [
     tags: ["Next.js", "Tailwind CSS", "Vercel"],
     año: "2025",
     url: "https://www.evirost.com/",
-    cover: "/images/Webs/Evi Rost.png",
+    cover: assetUrl("/images/Webs/Evi Rost.png"),
   },
 ];
 

@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const isDev = process.env.NODE_ENV !== "production";
+const assetHost = process.env.NEXT_PUBLIC_ASSETS_BASE_URL ?? "";
 
 const securityHeaders = [
   { key: "X-DNS-Prefetch-Control", value: "on" },
@@ -17,7 +18,7 @@ const securityHeaders = [
       `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
-      "img-src 'self' data: blob:",
+      `img-src 'self' data: blob:${assetHost ? ` ${assetHost}` : ""}`,
       "connect-src 'self'",
       "frame-ancestors 'none'",
       "base-uri 'self'",
@@ -25,8 +26,6 @@ const securityHeaders = [
     ].join("; "),
   },
 ];
-
-const assetHost = process.env.NEXT_PUBLIC_ASSETS_BASE_URL ?? "";
 
 const remoteImagePattern = assetHost
   ? (() => {
