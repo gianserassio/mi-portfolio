@@ -1,6 +1,5 @@
 ﻿"use client";
 
-import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -111,68 +110,60 @@ export default function Hero() {
       </div>
 
       {/* Contenido */}
-      <div className="relative z-20 max-w-5xl mx-auto px-6 text-center">
+      <div className="relative z-20 max-w-3xl mx-auto md:mx-0 md:ml-[8%] px-6 text-left">
         {/* Halo oscuro detrás del texto */}
         <div
           className="absolute inset-0 -z-10 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 75% 85% at 50% 50%, rgba(13,0,0,0.72) 0%, rgba(13,0,0,0.45) 50%, transparent 100%)",
+              "radial-gradient(ellipse 90% 90% at 30% 50%, rgba(13,0,0,0.72) 0%, rgba(13,0,0,0.45) 55%, transparent 100%)",
             filter: "blur(18px)",
-            transform: "scale(1.1)",
+            transform: "scale(1.15)",
           }}
         />
 
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: -16 }}
+        {/* Eyebrow */}
+        <motion.p
+          initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#E87878]/20 bg-[#E87878]/5 text-[#E87878] text-xs font-medium tracking-widest uppercase mb-8"
+          className="text-[#A48888] text-sm font-semibold tracking-[0.3em] uppercase mb-6"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#E87878] animate-pulse" />
-          {tr.badge}
-        </motion.div>
+          {tr.eyebrow}
+        </motion.p>
 
-        {/* Nombre */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+        {/* Título */}
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.35 }}
-          className="flex items-center justify-center gap-4 md:gap-6 mb-4"
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1.05] mb-4"
         >
-          <span className="text-[#E87878]/30 font-light select-none text-5xl md:text-7xl leading-none">[</span>
-          <h1 className="text-5xl md:text-8xl font-bold tracking-tight text-white leading-none">
-            Giancarlo
-            <br />
-            <span
-              className="text-transparent bg-clip-text"
-              style={{ backgroundImage: "linear-gradient(135deg, #E87878 0%, #E89E6E 100%)" }}
-            >
-              Serassio
-            </span>
-          </h1>
-          <span className="text-[#E89E6E]/30 font-light select-none text-5xl md:text-7xl leading-none self-end pb-1">]</span>
-        </motion.div>
+          {tr.heading_first}{" "}
+          <span
+            className="text-transparent bg-clip-text"
+            style={{ backgroundImage: "linear-gradient(135deg, #E87878 0%, #E89E6E 100%)" }}
+          >
+            {tr.heading_last}
+          </span>
+        </motion.h1>
 
-        {/* Typewriter */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex items-center justify-center gap-3 mb-6 h-8"
+        {/* Rol */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-[#E87878] text-xl md:text-2xl font-semibold mb-7"
         >
-          <span className="text-[#A48888] text-lg select-none">—</span>
-          <TypewriterText words={tr.roles as unknown as string[]} />
-          <span className="text-[#A48888] text-lg select-none">—</span>
-        </motion.div>
+          {tr.role}
+        </motion.p>
 
         {/* Descripción */}
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.75 }}
-          className="text-[#A48888] text-base md:text-lg max-w-xl mx-auto mb-10 leading-relaxed"
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="text-[#A48888] text-lg md:text-xl max-w-lg mb-9 leading-relaxed"
         >
           {tr.description}
         </motion.p>
@@ -181,12 +172,12 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.9 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          transition={{ duration: 0.6, delay: 0.65 }}
+          className="flex flex-wrap items-center gap-5 mb-8"
         >
           <a
             href="#proyectos"
-            className="group px-7 py-3 rounded-full bg-[#E87878] text-[#0d0000] text-sm font-bold tracking-wide hover:bg-white transition-colors duration-200 flex items-center gap-2"
+            className="group px-8 py-3.5 rounded-full bg-[#E87878] text-[#0d0000] text-base font-bold tracking-wide hover:bg-white transition-colors duration-200 flex items-center gap-2"
           >
             {tr.cta_primary}
             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -195,26 +186,21 @@ export default function Hero() {
           </a>
           <a
             href="#contacto"
-            className="px-7 py-3 rounded-full border border-white/25 text-sm font-medium text-white/70 hover:border-white/60 hover:text-white transition-colors duration-200"
+            className="px-8 py-3.5 rounded-full border border-white/25 text-base font-medium text-white/70 hover:border-white/60 hover:text-white transition-colors duration-200"
           >
             {tr.cta_secondary}
           </a>
         </motion.div>
 
-        {/* Stats */}
-        <motion.div
+        {/* Trust line */}
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="mt-16 flex items-center justify-center gap-12 md:gap-20"
+          transition={{ duration: 0.6, delay: 0.85 }}
+          className="text-[#A48888] text-sm md:text-base border-t border-[#3c0000] pt-4 max-w-lg"
         >
-          {tr.stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-2xl font-bold text-white">{stat.value}</div>
-              <div className="text-xs text-[#A48888] mt-1 tracking-wide">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
+          {tr.trust}
+        </motion.p>
       </div>
 
     </section>
@@ -251,42 +237,6 @@ function CollageBackground({ tileLabels }: { tileLabels: Record<number, string> 
         </motion.div>
       ))}
     </div>
-  );
-}
-
-/* ─── Typewriter ──────────────────────────────────────────────────────── */
-function TypewriterText({ words }: { words: string[] }) {
-  const [index, setIndex] = useState(0);
-  const [displayed, setDisplayed] = useState("");
-  const [deleting, setDeleting] = useState(false);
-  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  /* Reset cuando cambian los words (cambio de idioma) */
-  useEffect(() => {
-    setDisplayed("");
-    setDeleting(false);
-    setIndex(0);
-  }, [words]);
-
-  useEffect(() => {
-    const current = words[index];
-    if (!deleting && displayed.length < current.length) {
-      timer.current = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 70);
-    } else if (!deleting && displayed.length === current.length) {
-      timer.current = setTimeout(() => setDeleting(true), 2000);
-    } else if (deleting && displayed.length > 0) {
-      timer.current = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 40);
-    } else if (deleting && displayed.length === 0) {
-      setDeleting(false);
-      setIndex((i) => (i + 1) % words.length);
-    }
-    return () => { if (timer.current) clearTimeout(timer.current); };
-  }, [displayed, deleting, index, words]);
-
-  return (
-    <span className="text-base md:text-lg font-semibold text-[#E87878] text-center inline-block">
-      {displayed}<span className="animate-pulse">|</span>
-    </span>
   );
 }
 

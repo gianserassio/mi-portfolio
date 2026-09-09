@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/lib/translations";
@@ -11,11 +12,13 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { lang, toggle } = useLanguage();
   const tr = t[lang].nav;
+  const pathname = usePathname();
 
   const LINKS = [
-    { label: tr.projects, href: "#proyectos" },
-    { label: tr.about, href: "#sobre-mi" },
-    { label: tr.contact, href: "#contacto" },
+    { label: tr.projects, href: "/#proyectos" },
+    { label: tr.about, href: "/#sobre-mi" },
+    { label: tr.contact, href: "/#contacto" },
+    { label: tr.cv, href: "/cv" },
   ];
 
   useEffect(() => {
@@ -27,7 +30,7 @@ export default function Navbar() {
   useEffect(() => {
     const ids = ["proyectos", "sobre-mi", "contacto"];
     const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => { if (e.isIntersecting) setActive(`#${e.target.id}`); }),
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) setActive(`/#${e.target.id}`); }),
       { threshold: 0.4 }
     );
     ids.forEach((id) => { const el = document.getElementById(id); if (el) observer.observe(el); });
@@ -56,7 +59,7 @@ export default function Navbar() {
             : "bg-[#150000]/60 border border-[#3c0000]/50 backdrop-blur-sm"
         }`}>
           {/* Logo */}
-          <a href="#" className="flex items-center gap-1.5 group">
+          <a href="/" className="flex items-center gap-1.5 group">
             <span className="text-[#E87878] font-bold text-xl tracking-tight">GS</span>
             <span className="text-[#A48888] text-xl font-light group-hover:text-white transition-colors">.design</span>
           </a>
@@ -65,7 +68,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-6">
             <ul className="flex items-center gap-6">
               {LINKS.map((link) => {
-                const isActive = active === link.href;
+                const isActive = link.href.startsWith("/#") ? active === link.href : pathname === link.href;
                 return (
                   <li key={link.href} className="relative">
                     <a
@@ -137,7 +140,7 @@ export default function Navbar() {
           >
             <ul className="flex flex-col gap-1">
               {LINKS.map((link) => {
-                const isActive = active === link.href;
+                const isActive = link.href.startsWith("/#") ? active === link.href : pathname === link.href;
                 return (
                   <li key={link.href}>
                     <a
