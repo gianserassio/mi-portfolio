@@ -109,16 +109,16 @@ export const t = {
     about: {
       eyebrow: "About me",
       heading: "Designer who",
-      heading_italic: "models, renders, animates & advertises",
+      heading_italic: "conceptualizes, models & animates",
       bio1: "I'm Giancarlo Serassio — I help brands show their products at their best.",
-      bio2: "Over 7 years working in 3D visualization and marketing: modeling, texturing and rendering to show products with precision and impact; motion and animation to bring them to life; and Meta Ads campaigns to reach the right people.",
+      bio2: "Over 7 years working in industrial design and 3D visualization: shaping product concepts from idea to form; modeling, texturing and rendering to show them with precision and impact; and motion and animation to bring them to life.",
       tools_label: "Tools",
       proficiency_label: "Proficiency",
       services_label: "Services",
       services: [
+        { name: "Product Design", desc: "Concept development and form exploration, from idea to product" },
         { name: "3D Modeling & Rendering", desc: "Product modeling, texturing and photorealistic rendering" },
         { name: "Animation & Motion", desc: "Product animation and motion graphics for marketing and presentations" },
-        { name: "Meta Ads", desc: "Ad campaigns on Facebook & Instagram to drive results and grow your brand" },
       ],
     },
 
@@ -351,16 +351,16 @@ export const t = {
     about: {
       eyebrow: "Sobre mí",
       heading: "Diseñador que",
-      heading_italic: "modela, renderiza, anima y publicita",
+      heading_italic: "conceptualiza, modela y anima",
       bio1: "Soy Giancarlo Serassio — ayudo a las marcas a mostrar sus productos en su mejor versión.",
-      bio2: "Más de 7 años trabajando en visualización 3D y marketing: modelado, texturizado y renderizado para mostrar productos con precisión e impacto; motion y animación para darles vida; y campañas de Meta Ads para llegar a las personas correctas.",
+      bio2: "Más de 7 años trabajando en diseño industrial y visualización 3D: dando forma a conceptos de producto desde la idea; modelado, texturizado y renderizado para mostrarlos con precisión e impacto; y motion y animación para darles vida.",
       tools_label: "Herramientas",
       proficiency_label: "Nivel de dominio",
       services_label: "Servicios",
       services: [
+        { name: "Diseño de Producto", desc: "Desarrollo de concepto y exploración de forma, de la idea al producto" },
         { name: "Modelado 3D & Render", desc: "Modelado, texturizado y renderizado fotorrealista de producto" },
         { name: "Animación & Motion", desc: "Animación de producto y motion graphics para marketing y presentaciones" },
-        { name: "Meta Ads", desc: "Campañas publicitarias en Facebook e Instagram para generar resultados y hacer crecer tu marca" },
       ],
     },
 
