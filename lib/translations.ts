@@ -35,6 +35,13 @@ export const t = {
       },
     },
 
+    /* Render Gallery */
+    gallery: {
+      eyebrow: "More renders",
+      heading: "Loose",
+      heading_sub: " renders",
+    },
+
     /* Projects */
     projects: {
       eyebrow: "Selected work",
@@ -271,6 +278,12 @@ export const t = {
         9: "Visualización",
         10: "Animación",
       },
+    },
+
+    gallery: {
+      eyebrow: "Más renders",
+      heading: "Renders",
+      heading_sub: " sueltos",
     },
 
     projects: {
