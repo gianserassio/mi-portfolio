@@ -102,6 +102,14 @@ export const t = {
           tags: ["Blender", "Illustrator", "Photoshop"],
           año: "2025",
         },
+        {
+          titulo: "Ultra Tech",
+          categoria: "Animation",
+          descripcion:
+            "3D modelling, rendering and advertising animation for a sports supplements brand — booth visuals and video content for social media.",
+          tags: ["Blender", "After Effects", "Photoshop"],
+          año: "2026",
+        },
       ],
     },
 
@@ -344,6 +352,14 @@ export const t = {
             "Visualización de producto para una marca de suplementos — escena hero, ángulos aislados y serie de variantes de color.",
           tags: ["Blender", "Illustrator", "Photoshop"],
           año: "2025",
+        },
+        {
+          titulo: "Ultra Tech",
+          categoria: "Animación",
+          descripcion:
+            "Modelado 3D, render y animación publicitaria para una marca de suplementos deportivos — visuales de stand y contenido de video para redes sociales.",
+          tags: ["Blender", "After Effects", "Photoshop"],
+          año: "2026",
         },
       ],
     },

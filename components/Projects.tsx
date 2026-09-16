@@ -7,6 +7,14 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/lib/translations";
 import { ASSETS_BASE_URL, assetUrl } from "@/lib/assets";
 
+const VIDEO_EXT = /\.(mp4|webm|mov)$/i;
+const isVideo = (src: string) => VIDEO_EXT.test(src);
+
+interface MediaGroup {
+  label: string;
+  items: string[];
+}
+
 const BADGE: Record<string, { bg: string; text: string; dot: string }> = {
   "3D Modeling":  { bg: "bg-[#E87878]/10", text: "text-[#E87878]", dot: "bg-[#E87878]" },
   "Modelado 3D":  { bg: "bg-[#E87878]/10", text: "text-[#E87878]", dot: "bg-[#E87878]" },
@@ -134,8 +142,9 @@ const PROJECT_IMAGES: Record<number, { cover: string; gallery: string[] }> = {
     ],
   },
   2: {
-    cover: "/images/Monster Vape Laps/Vr_Scene_Test.webp",
+    cover: "/images/Monster Vape Laps/Banner.webp",
     gallery: [
+      "/images/Monster Vape Laps/Banner.webp",
       "/images/Monster Vape Laps/Vr_Scene_Test.webp",
       "/images/Monster Vape Laps/MVL_Booth_1.webp",
       "/images/Monster Vape Laps/MVL_Booth_2.webp",
@@ -233,13 +242,14 @@ const PROJECT_IMAGES: Record<number, { cover: string; gallery: string[] }> = {
   },
 };
 
-export default function Projects() {
+export default function Projects({ ultraTechGroups = [] }: { ultraTechGroups?: MediaGroup[] }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
   const { lang } = useLanguage();
   const tr = t[lang].projects;
 
-  const [gallery, setGallery] = useState<{ images: string[]; title: string } | null>(null);
+  const [gallery, setGallery] = useState<{ images: string[]; groups?: MediaGroup[]; title: string } | null>(null);
+  const ultraTechFlat = ultraTechGroups.flatMap((g) => g.items);
 
   return (
     <>
@@ -273,6 +283,12 @@ export default function Projects() {
                     cover: assetUrl(PROJECT_IMAGES[i].cover),
                     gallery: PROJECT_IMAGES[i].gallery.map(assetUrl),
                   }
+                : ultraTechFlat.length > 0 && p.titulo === "Ultra Tech"
+                ? {
+                    cover: ultraTechFlat.find((m) => !isVideo(m)) ?? ultraTechFlat[0],
+                    gallery: ultraTechFlat,
+                    groups: ultraTechGroups,
+                  }
                 : undefined;
 
               return (
@@ -281,7 +297,7 @@ export default function Projects() {
                   project={p}
                   index={i}
                   images={remoteImages}
-                  onOpenGallery={(imgs) => setGallery({ images: imgs, title: p.titulo })}
+                  onOpenGallery={(imgs, groups) => setGallery({ images: imgs, groups, title: p.titulo })}
                 />
               );
             })}
@@ -292,6 +308,7 @@ export default function Projects() {
       {gallery && (
         <ProjectGallery
           images={gallery.images}
+          groups={gallery.groups}
           title={gallery.title}
           onClose={() => setGallery(null)}
         />
@@ -309,8 +326,8 @@ function ProjectCard({
 }: {
   project: { titulo: string; categoria: string; descripcion: string; tags: readonly string[]; año: string };
   index: number;
-  images?: { cover: string; gallery: string[] };
-  onOpenGallery: (images: string[]) => void;
+  images?: { cover: string; gallery: string[]; groups?: MediaGroup[] };
+  onOpenGallery: (images: string[], groups?: MediaGroup[]) => void;
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-40px" });
@@ -332,17 +349,28 @@ function ProjectCard({
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.55, delay: index * 0.08, ease: "easeOut" }}
-      onClick={images ? () => onOpenGallery(images.gallery) : undefined}
+      onClick={images ? () => onOpenGallery(images.gallery, images.groups) : undefined}
       className={`group bg-[#150000] border border-[#3c0000] hover:border-[#E87878]/40 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(232,120,120,0.07)] flex flex-col ${images ? "cursor-pointer" : "cursor-default"}`}
     >
       {/* Image area */}
       <div className="relative h-52 bg-[#1a0000] overflow-hidden flex-shrink-0">
         {images?.cover ? (
-          <img
-            src={images.cover}
-            alt={project.titulo}
-            className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-          />
+          isVideo(images.cover) ? (
+            <video
+              src={images.cover}
+              muted
+              loop
+              autoPlay
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <img
+              src={images.cover}
+              alt={project.titulo}
+              className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            />
+          )
         ) : (
           <>
             <svg className="absolute inset-0 w-full h-full opacity-[0.06]" xmlns="http://www.w3.org/2000/svg">
@@ -396,17 +424,85 @@ function ProjectCard({
   );
 }
 
+/* ─── Gallery thumbnail (grid cell) ──────────────────────────────── */
+function GalleryThumb({
+  src,
+  index,
+  title,
+  onClick,
+}: {
+  src: string;
+  index: number;
+  title: string;
+  onClick: () => void;
+}) {
+  const [ratio, setRatio] = useState<number | null>(null);
+
+  return (
+    <motion.button
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.25, delay: Math.min(index, 20) * 0.015 }}
+      onClick={onClick}
+      style={ratio ? { aspectRatio: ratio } : undefined}
+      className={`relative rounded-xl overflow-hidden group/img bg-[#150000] ${ratio ? "" : "aspect-square"}`}
+    >
+      {isVideo(src) ? (
+        <video
+          src={src}
+          muted
+          loop
+          autoPlay
+          playsInline
+          onLoadedMetadata={(e) => setRatio(e.currentTarget.videoWidth / e.currentTarget.videoHeight)}
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-105"
+        />
+      ) : (
+        <img
+          src={src}
+          alt={`${title} ${index + 1}`}
+          onLoad={(e) => setRatio(e.currentTarget.naturalWidth / e.currentTarget.naturalHeight)}
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-105"
+        />
+      )}
+      {isVideo(src) && (
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="w-9 h-9 rounded-full bg-[#0d0000]/70 border border-white/20 flex items-center justify-center backdrop-blur-sm">
+            <svg className="w-3.5 h-3.5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+        </div>
+      )}
+      <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/20 transition-colors duration-200" />
+      <span className="absolute bottom-1.5 right-2 text-[9px] font-mono text-white/40 opacity-0 group-hover/img:opacity-100 transition-opacity">
+        {index + 1}
+      </span>
+    </motion.button>
+  );
+}
+
 /* ─── Gallery — collection grid + zoom ────────────────────────────── */
 function ProjectGallery({
   images,
+  groups,
   title,
   onClose,
 }: {
   images: string[];
+  groups?: MediaGroup[];
   title: string;
   onClose: () => void;
 }) {
   const [zoomed, setZoomed] = useState<number | null>(null);
+
+  const groupRows = groups && groups.length > 1
+    ? groups.reduce<{ label: string; items: string[]; start: number }[]>((acc, g) => {
+        const start = acc.length ? acc[acc.length - 1].start + acc[acc.length - 1].items.length : 0;
+        acc.push({ ...g, start });
+        return acc;
+      }, [])
+    : null;
 
   const prevZoom = useCallback(() => setZoomed((z) => z !== null ? (z - 1 + images.length) % images.length : null), [images.length]);
   const nextZoom = useCallback(() => setZoomed((z) => z !== null ? (z + 1) % images.length : null), [images.length]);
@@ -447,28 +543,36 @@ function ProjectGallery({
 
       {/* Grid */}
       <div className="flex-1 overflow-y-auto p-4">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 max-w-7xl mx-auto">
-          {images.map((src, i) => (
-            <motion.button
-              key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.25, delay: i * 0.015 }}
-              onClick={() => setZoomed(i)}
-              className="relative aspect-square rounded-xl overflow-hidden group/img bg-[#150000]"
-            >
-              <img
-                src={src}
-                alt={`${title} ${i + 1}`}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/20 transition-colors duration-200" />
-              <span className="absolute bottom-1.5 right-2 text-[9px] font-mono text-white/40 opacity-0 group-hover/img:opacity-100 transition-opacity">
-                {i + 1}
-              </span>
-            </motion.button>
-          ))}
-        </div>
+        {groupRows ? (
+          <div className="max-w-7xl mx-auto space-y-8">
+            {groupRows.map((group) => (
+              <div key={group.label || group.start}>
+                {group.label && (
+                  <p className="text-[#A48888] text-xs font-semibold tracking-[0.2em] uppercase mb-3">
+                    {group.label}
+                  </p>
+                )}
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
+                  {group.items.map((src, j) => (
+                    <GalleryThumb
+                      key={group.start + j}
+                      src={src}
+                      index={group.start + j}
+                      title={title}
+                      onClick={() => setZoomed(group.start + j)}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 max-w-7xl mx-auto">
+            {images.map((src, i) => (
+              <GalleryThumb key={i} src={src} index={i} title={title} onClick={() => setZoomed(i)} />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Zoom overlay */}
@@ -494,13 +598,23 @@ function ProjectGallery({
 
           {/* Zoomed image */}
           <div className="flex-1 flex items-center justify-center px-16 min-h-0 relative" onClick={(e) => e.stopPropagation()}>
-            <div className="relative w-full h-full max-w-3xl">
-              <img
-                key={zoomed}
-                src={images[zoomed]}
-                alt={`${title} ${zoomed + 1}`}
-                className="max-w-full max-h-full object-contain"
-              />
+            <div className="relative w-full h-full max-w-3xl flex items-center justify-center">
+              {isVideo(images[zoomed]) ? (
+                <video
+                  key={zoomed}
+                  src={images[zoomed]}
+                  controls
+                  autoPlay
+                  className="max-w-full max-h-full object-contain"
+                />
+              ) : (
+                <img
+                  key={zoomed}
+                  src={images[zoomed]}
+                  alt={`${title} ${zoomed + 1}`}
+                  className="max-w-full max-h-full object-contain"
+                />
+              )}
             </div>
             <button
               onClick={prevZoom}
